@@ -1,0 +1,353 @@
+/* container de todos los items */
+.containerForDesktop {
+  height: 100%;
+  position: relative;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 15% 1fr 22%;
+  padding-top: 7px;
+}
+
+.playerImage { /* el div de la foto del pod */
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  left: 30px;
+}
+
+.playerImage > img {
+  pointer-events: none;
+  width: 70px;
+  height: 70px;
+}
+
+.barAndControl { /* contiene la barra de range en si, el titulo y los controles. la barra va a ser position absolute para que esté pegada arriba de todos modos */
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.barAndControl > * {
+  user-select: none;
+}
+
+.barAndControl button {
+  -webkit-tap-highlight-color: transparent;
+  border: 0;
+  background-color: transparent;
+}
+
+.barAndControl p {
+  margin: 0;
+}
+
+.barAndControl button p {
+  margin: 0;
+}
+
+.songTitle p {
+  font-size: var(--fs-11);
+}
+
+/* contiene el input solamente en tamaño desktop */
+.navigation {
+  display: flex;
+  justify-content: center;
+}
+
+/* la barra en si que se posiciona absolutamente */
+.progressBar {
+  --bar-bg: #272725;
+  --seek-before-width: 0;
+  --seek-before-color: var(--clr-seek-bar);
+  --knobby: #145014;
+  --selectedKnobby: #66aa82;
+
+  -webkit-tap-highlight-color: transparent;
+  appearance: none;
+  background: var(--bar-bg);
+  border-radius: 0;
+  position: absolute;
+  top: -5px;
+  left: -2px;
+  right: 0;
+  width: 100%;
+  height: 10px;
+  outline: none;
+}
+
+/* progress bar - safari */
+.progressBar::-webkit-slider-runnable-track {
+  background: var(--bar-bg);
+  border-radius: 10px;
+  position: relative;
+  width: 100%;
+  height: 11px;
+  outline: none;
+}
+
+/* progress bar - firefox */
+.progressBar::-moz-range-track {
+  background: var(--bar-bg);;
+  border-radius: 10px;
+  position: relative;
+  width: 100%;
+  height: 10px;
+  outline: none;
+}
+
+.progressBar::-moz-focus-outer {
+  border: 0;
+}
+
+/* progress bar - chrome and safari */
+.progressBar::before {
+  content: '';
+  height: 11px;
+  width: var(--seek-before-width);
+  background-color: var(--seek-before-color);
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* progress bar - firefox */
+.progressBar::-moz-range-progress {
+  background-color: var(--seek-before-color);
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  height: 10px;
+}
+
+/* knobby - chrome and safari */
+.progressBar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 24px;
+  width: 13px;
+  border-radius: 10%;
+  border: none;
+  background-color: var(--knobby);
+  cursor: pointer;
+  position: relative;
+  margin: -6px 0 0 0;
+  z-index: 3;
+  box-sizing: border-box;
+}
+
+/* knobby while dragging - chrome and safari */
+.progressBar:active::-webkit-slider-thumb {
+  transform: scale(1.2);
+  background: var(--selectedKnobby);
+}
+
+/* knobby - firefox */
+.progressBar::-moz-range-thumb {
+  height: 26px;
+  width: 14px;
+  border-radius: 10%;
+  border: transparent;
+  background-color: var(--knobby);
+  cursor: pointer;
+  position: relative;
+  z-index: 3;
+  box-sizing: border-box;
+}
+
+/* knobby while dragging - firefox */
+.progressBar:active::-moz-range-thumb {
+  transform: scale(1.2);
+  background: var(--selectedKnobby);
+}
+
+
+/* controles de play/pause, atrás/adelante */
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.playBtnPlayer {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7487%) hue-rotate(221deg) brightness(102%) contrast(108%);
+}
+
+.minusPlusSec > svg {
+  font-size: 1.8rem;
+}
+
+.minusPlusSec p {
+  font-size: 0.9rem;
+  /* font-weight: 600; */
+}
+
+.minusPlusSec, .playerPlayPause {
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.playerPlayPause {
+  -webkit-tap-highlight-color: transparent;
+  padding: 0.3rem 0.5rem 0.5rem 0.5rem;
+}
+
+.playerPlayPause > svg {
+  font-size: 1.8rem;
+}
+
+
+/* el input de range de volumen y el tiempo actual y restante */ 
+.timeAndVolume {
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.timeAndVolume p {
+  margin: 0;
+}
+.timeAndVolume > * {
+  flex-basis: 100%;
+}
+
+.timeDiv {
+  display: flex;
+  gap: 4px;
+}
+
+.volumeControls {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.volumeBtn {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0.2rem;
+  font-size: 1.4rem;
+}
+.volumeIcon {
+  pointer-events: none;
+}
+
+/* el input type range para el volumen. Parecido al otro en la manera de estilizar */
+.volumeBar {
+  --bar-bg: #272725;
+  --seek-before-width-volume: 100%;
+  --seek-before-color: var(--clr-seek-bar);
+  --knobby: #145014;
+  --selectedKnobby: #66aa82;
+
+  -webkit-tap-highlight-color: transparent;
+  appearance: none;
+  background: var(--bar-bg);
+  width: 80%;
+  height: 6px;
+  outline: none;
+  border-radius: 10px;
+  position: relative;
+}
+
+/* progress bar - safari */
+.volumeBar::-webkit-slider-runnable-track {
+  background: var(--bar-bg);
+  border-radius: 10px;
+  position: relative;
+  width: 100%;
+  height: 6px;
+  outline: none;
+}
+
+/* progress bar - firefox */
+.volumeBar::-moz-range-track {
+  background: var(--bar-bg);;
+  border-radius: 10px;
+  position: relative;
+  width: 100%;
+  height: 6px;
+  outline: none;
+}
+
+.volumeBar::-moz-focus-outer {
+  border: 0;
+}
+
+/* progress bar - chrome and safari */
+.volumeBar::before {
+  content: '';
+  height: 6px;
+  width: var(--seek-before-width-volume);
+  background-color: var(--seek-before-color);
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* progress bar - firefox */
+.volumeBar::-moz-range-progress {
+  background-color: var(--seek-before-color);
+  border-radius: 10px;
+  height: 6px;
+}
+
+/* knobby - chrome and safari */
+.volumeBar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--knobby);
+  cursor: pointer;
+  position: relative;
+  margin: -6px 0 0 0;
+  z-index: 3;
+  box-sizing: border-box;
+}
+
+/* knobby while dragging - chrome and safari */
+.volumeBar:active::-webkit-slider-thumb {
+  transform: scale(1.2);
+  background: var(--selectedKnobby);
+}
+
+/* knobby - firefox */
+.volumeBar::-moz-range-thumb {
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  border: transparent;
+  background-color: var(--knobby);
+  cursor: pointer;
+  position: relative;
+  z-index: 3;
+  box-sizing: border-box;
+}
+
+/* knobby while dragging - firefox */
+.volumeBar:active::-moz-range-thumb {
+  transform: scale(1.2);
+  background: var(--selectedKnobby);
+}
+

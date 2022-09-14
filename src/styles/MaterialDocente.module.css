@@ -1,0 +1,145 @@
+/* titulo de la seccion */
+.tituloMaterial {
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  font-size: var(--fs-6);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  margin: 0 auto 1rem;
+  user-select: none;
+  text-decoration: none;
+  color: inherit;
+}
+.tituloMaterial svg {
+  pointer-events: none;
+}
+
+.arrow {
+  transform: rotateZ(0);
+  transition: transform 300ms ease-in-out;
+}
+
+.arrow.active {
+  transform: rotateZ(180deg)
+}
+
+/* container de todos los cards */
+.materialCards {
+  max-height: 0;
+  overflow: hidden;
+  display: grid;
+  gap: 15px;
+}
+.materialCards.active {
+  max-height: 200rem;
+  overflow: visible;
+}
+
+
+/* cada card individual */
+.materialCard {
+  display: flex;
+  gap: 15px;
+  box-shadow: 0px 0px 10px 1px rgb(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 1rem;
+  position: relative;
+}
+
+.materialCard img {
+  max-width: 35%;
+}
+
+
+/* seccion de la derecha con el titulo y boton de descarga */
+.titleDownload {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.titleDownload p {
+  font-size: var(--fs-9);
+  margin: 0;
+  font-weight: 600;
+}
+
+.titleDownload a {
+  display: inline-block;
+  background-color: var(--clr-buttons);
+  border-radius: 7px;
+  padding: 0.3rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  color: white;
+  transition: opacity 100ms ease-in-out;
+}
+.titleDownload a:hover {
+  opacity: 0.8;
+}
+
+
+@media (min-width: 500px) {
+  .materialCard {
+    gap: 25px;
+    padding: 2rem;
+  }
+  .titleDownload p {
+    font-size: var(--fs-7);
+  }
+}
+
+@media (min-width: 700px) {
+  .materialCards {
+    grid-template-columns: 1fr 1fr;
+  }
+  .materialCard {
+    padding: 1rem;
+    gap: 15px;
+  }
+  .titleDownload p {
+    font-size: var(--fs-12);
+  }
+  .titleDownload a {
+    padding: 0.2rem 0;
+  }
+}
+
+@media (min-width: 740px) {
+  .titleDownload p {
+    font-size: var(--fs-11);
+  }
+}
+
+@media (min-width: 850px) {
+  .titleDownload p {
+    font-size: var(--fs-9);
+  }
+  .titleDownload a {
+    padding: 0.4rem 0;
+  }
+}
+
+@media (min-width: 1000px) {
+  .titleDownload p {
+    font-size: var(--fs-10);
+  }
+}
+
+@media (min-width: 1250px) {
+  .materialCards {
+    grid-template-columns: repeat(3, 1fr)
+  }
+  .titleDownload p {
+    font-size: var(--fs-11)
+  }
+  .titleDownload a {
+    padding: 0.3rem 0;
+  }
+}

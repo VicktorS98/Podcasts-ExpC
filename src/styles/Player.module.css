@@ -1,0 +1,280 @@
+/* container y estilos generales */
+.containerForMobile {
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.containerForMobile > * {
+  user-select: none;
+}
+
+.containerForMobile button {
+  -webkit-tap-highlight-color: transparent;
+  border: 0;
+  background-color: transparent;
+}
+
+.containerForMobile p {
+  margin: 0;
+}
+
+.containerForMobile button p {
+  margin: 0;
+}
+
+
+/* titulo */
+.songTitle {
+  max-width: 320px;
+  overflow: hidden;
+  margin-bottom: 5px;
+  font-size: var(--fs-8);
+  font-weight: 600;
+}
+
+/* creando las clases para animar según cantidad de caracteres en el titulo seleccionado */
+.loopSmall, .loopMedium, .loopBig, .loopHuge {
+  white-space: nowrap; 
+}
+.loopSmall {
+  animation: loopSmall 9000ms infinite;
+}
+
+.loopMedium {
+  animation: loopMedium 10000ms infinite;
+}
+
+.loopBig {
+  animation: loopBig 11000ms infinite;
+}
+
+.loopHuge {
+  animation: loopHuge 13000ms infinite;
+}
+
+/* keyframes para animar el balanceo de derecha a izquierda */
+@keyframes loopSmall {
+  0% {transform: translateX(12%)}
+  50% {transform: translateX(-20%)}
+  100% {transform: translateX(12%)}
+}
+
+@keyframes loopMedium {
+  0% {transform: translateX(18%)}
+  50% {transform: translateX(-47%)}
+  100% {transform: translateX(18%)}
+}
+
+@keyframes loopBig {
+  0% {transform: translateX(20%)}
+  50% {transform: translateX(-87%)}
+  100% {transform: translateX(20%)}
+}
+
+@keyframes loopHuge {
+  0% {transform: translateX(22%)}
+  50% {transform: translateX(-105%)}
+  100% {transform: translateX(22%)}
+}
+
+
+/* barra de navegación activa de segundos */
+.navigation {
+  display: grid;
+  grid-template-columns: 16% 1fr 16%;
+  align-items: center;
+  width: 100%;
+  gap: 5px;
+}
+
+.progressBar {
+  --bar-bg: #272725;
+  --seek-before-width: 0;
+  --seek-before-color: var(--clr-seek-bar);
+  --knobby: #145014;
+  --selectedKnobby: #66aa82;
+
+  -webkit-tap-highlight-color: transparent;
+  appearance: none;
+  background: var(--bar-bg);;
+  border-radius: 10px;
+  position: relative;
+  width: 100%;
+  height: 10px;
+  outline: none;
+}
+
+/* progress bar - safari */
+.progressBar::-webkit-slider-runnable-track {
+  background: var(--bar-bg);
+  border-radius: 10px;
+  position: relative;
+  width: 100%;
+  height: 11px;
+  outline: none;
+}
+
+/* progress bar - firefox */
+.progressBar::-moz-range-track {
+  background: var(--bar-bg);;
+  border-radius: 10px;
+  position: relative;
+  width: 100%;
+  height: 10px;
+  outline: none;
+}
+
+.progressBar::-moz-focus-outer {
+  border: 0;
+}
+
+/* progress bar - chrome and safari */
+.progressBar::before {
+  content: '';
+  height: 11px;
+  width: var(--seek-before-width);
+  background-color: var(--seek-before-color);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* progress bar - firefox */
+.progressBar::-moz-range-progress {
+  background-color: var(--seek-before-color);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  height: 10px;
+}
+
+/* knobby - chrome and safari */
+.progressBar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 21px;
+  width: 10px;
+  border-radius: 10%;
+  border: none;
+  background-color: var(--knobby);
+  cursor: pointer;
+  position: relative;
+  margin: -5px 0 0 0;
+  z-index: 3;
+  box-sizing: border-box;
+}
+
+/* knobby while dragging - chrome and safari */
+.progressBar:active::-webkit-slider-thumb {
+  transform: scale(1.2);
+  background: var(--selectedKnobby);
+}
+
+/* knobby - firefox */
+.progressBar::-moz-range-thumb {
+  height: 20px;
+  width: 10px;
+  border-radius: 10%;
+  border: transparent;
+  background-color: var(--knobby);
+  cursor: pointer;
+  position: relative;
+  z-index: 3;
+  box-sizing: border-box;
+}
+
+/* knobby while dragging - firefox */
+.progressBar:active::-moz-range-thumb {
+  transform: scale(1.2);
+  background: var(--selectedKnobby);
+}
+
+
+/* controles de play/pause, atrás/adelante */
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.playBtnPlayer {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7487%) hue-rotate(221deg) brightness(102%) contrast(108%);
+}
+
+.minusPlusSec > svg {
+  font-size: 1.8rem;
+}
+
+.minusPlusSec p {
+  font-size: 0.9rem;
+  /* font-weight: 600; */
+}
+
+.minusPlusSec, .playerPlayPause {
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.playerPlayPause {
+  -webkit-tap-highlight-color: transparent;
+  padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+}
+
+.playerPlayPause > svg {
+  font-size: 1.7rem;
+}
+
+
+/* queries para cambiar un poco las animaciones en tamaños un poco más grandes */
+@media (min-width: 600px) {
+  .songTitle {
+    max-width: 460px;
+  }
+  @keyframes loopSmall {
+    0% {transform: translateX(5%)}
+    50% {transform: translateX(-12%)}
+    100% {transform: translateX(5%)}
+  }
+  
+  @keyframes loopMedium {
+    0% {transform: translateX(8%)}
+    50% {transform: translateX(-25%)}
+    100% {transform: translateX(8%)}
+  }
+  
+  @keyframes loopBig {
+    0% {transform: translateX(12%)}
+    50% {transform: translateX(-35%)}
+    100% {transform: translateX(12%)}
+  }
+  
+  @keyframes loopHuge {
+    0% {transform: translateX(20%)}
+    50% {transform: translateX(-60%)}
+    100% {transform: translateX(20%)}
+  }
+}
+
+
+/* Acá deja de balancearse */
+@media (min-width: 750px) {
+  .navigation {
+    grid-template-columns: 10% 1fr 10%;
+  }
+  .songTitle {
+    min-width: 100%;
+  }
+}

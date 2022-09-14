@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --padding-container: 1rem;
+
+  --clr-white: #fff;
+  --clr-grey: rgb(43, 41, 41);
+  --clr-duration-line: rgba(136, 136, 136, 0.781);
+  --clr-seek-bar: rgb(24, 128, 3);
+  --clr-buttons: #145014;
+
+  --clr-player-bg: rgb(15, 15, 15);
+
+  --fs-1: 3rem;
+  --fs-2: 2.5rem;
+  --fs-3: 2rem;
+  --fs-4: 1.8rem;
+  --fs-5: 1.6rem;
+  --fs-6: 1.3rem;
+  --fs-7: 1.1rem;
+  --fs-8: 1.05rem;
+  --fs-9: 0.9rem;
+  --fs-10: 0.85rem;
+  --fs-11: 0.75rem;
+  --fs-12: 0.72rem;
+}
+
+@media (min-width: 600px) {
+  :root {
+    --fs-1: 3.2rem;
+    --fs-2: 2.5rem;
+    --fs-3: 2.2rem;
+    --fs-4: 2rem;
+    --fs-5: 1.8rem;
+    --fs-6: 1.4rem;
+    --fs-7: 1.2rem;
+    --fs-8: 1.1rem;
+    --fs-9: 1.05rem;
+    --fs-10: 0.95rem;
+    --fs-11: 0.85rem;
+    --fs-12: 0.78rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  :root {
+    --fs-1: 3.5rem;
+    --fs-2: 2.7rem;
+    --fs-3: 2.5rem;
+    --fs-4: 2.3rem;
+    --fs-5: 1.9rem;
+    --fs-6: 1.6rem;
+    --fs-7: 1.4rem;
+    --fs-8: 1.3rem;
+    --fs-9: 1.15rem;
+    --fs-10: 1.15rem;
+    --fs-11: 1.05rem;
+    --fs-12: 0.83rem;
+  }
+} 
+
+.appContainer {
+  font-family: 'Open Sans', sans-serif;
+  padding: 3rem var(--padding-container);
+}
+
+button, input {
+  font-family: inherit;
+}
+
+.appContainer.mobile {
+  padding-bottom: 9rem;
+}
+
+.appContainer.desktop {
+  padding-bottom: 8rem;
+}
+
+.trailerContainer {
+  max-width: 370px;
+  margin: 0 auto;
+}
+
+.podsContainer {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.playerContainer {
+  transform: translateY(150%);
+  color: white;
+  z-index: 100;
+  position: fixed;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  background-color: var(--clr-player-bg);
+  height: 130px;
+  padding: 0 0.5rem;
+  transition: transform 300ms ease-in-out;
+}
+
+.playerContainer.active {
+  transform: translateY(0%)
+}
+
+.materialDocenteContainer {
+  margin-top: 4rem;
+}
+
+@media (min-width: 500px) {
+  :root {
+    --padding-container: 2rem;
+  }
+  .podsContainer {
+    gap: 25px;
+  }
+}
+
+@media (min-width: 675px) {
+  :root {
+    --padding-container: 2.5rem;
+  }
+  .trailerContainer {
+    max-width: 500px;
+  }
+  .podsContainer {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+}
+
+@media (min-width: 900px) {
+  .podsContainer {
+    gap: 25px;
+  }
+}
+
+@media (min-width: 1000px) {
+  :root {
+    --padding-container: 6rem;
+  }
+  .trailerContainer {
+    min-width: 580px;
+  }
+  .playerContainer {
+    height: 100px;
+    padding: 0;
+  }
+  
+}
+
+@media (min-width: 1150px) {
+  .podsContainer {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+  }
+  .materialDocenteContainer {
+    margin-top: 5rem;
+  }
+}
+
+
+
+
