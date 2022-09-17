@@ -1,6 +1,6 @@
 # Podcasts-ExpC
 
-###### Hecho en ReactJs 
+## Hecho en ReactJs 
  
 Testeado en Chrome y Safari. No tengo una Mac ni un iPhone por lo que no pude testear en esas circunstancias.
 
